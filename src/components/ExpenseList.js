@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import {GlobalContext} from "../context/Globalcontext"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';;
 
+
 function ExpenseList({ transaction }) {
+
+  const {deleteTransaction} = useContext(GlobalContext)
   const sign = transaction.cost < 0 ? "-" : "+";
   return (
     <div className="relative">
@@ -18,7 +22,7 @@ function ExpenseList({ transaction }) {
           {sign} ${Math.abs(transaction.cost)}
         </span>
       </div>
-      <button className="absolute left-0 h-6 "><DeleteForeverIcon sx = {{fontSize :16}}/></button>
+      <button onClick ={() =>deleteTransaction(transaction.id)} className="absolute left-0 h-6 "><DeleteForeverIcon sx = {{fontSize :16}}/></button>
     </li>
     </div>
     
