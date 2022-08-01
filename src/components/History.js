@@ -13,7 +13,7 @@ function History() {
 
       <div>
         <ul>
-          {transactions.map((transacton) => (
+          {transactions.slice(0,4).map((transacton) => (
             <ExpenseList key={transacton.id} transaction={transacton} />
           ))}
         </ul>
