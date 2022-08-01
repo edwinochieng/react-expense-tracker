@@ -1,32 +1,25 @@
-import React from 'react';
-import ExpenseList from './ExpenseList';
+import React from "react";
+import ExpenseList from "./ExpenseList";
+import { useContext } from "react";
+
+import { GlobalContext } from "../context/Globalcontext";
 
 function History() {
+  const { transactions } = useContext(GlobalContext);
 
-    const expenses = [
-        { id: 12, name: 'shopping', cost: 40 },
-		{ id: 13, name: 'holiday', cost: 400 },
-		{ id: 14, name: 'car service', cost: 50 },
-    ]
   return (
-    <div className='font-quicksand mt-6'>
-        <h1 className='text-lg font-bold'>History</h1>
+    <div className="font-quicksand mt-6">
+      <h1 className="text-lg ml-5 font-bold">History</h1>
 
-        <div>
-            <ul>
-                {expenses.map((expense) =>(
-
-                <ExpenseList 
-                    id = {expense.id}
-                    name = {expense.name}
-                    cost = {expense.cost}
-                />)
-  
-                )}
-            </ul>
-        </div>
+      <div>
+        <ul>
+          {transactions.map((transacton) => (
+            <ExpenseList key={transacton.id} transaction={transacton} />
+          ))}
+        </ul>
+      </div>
     </div>
-  )
+  );
 }
 
 export default History;
