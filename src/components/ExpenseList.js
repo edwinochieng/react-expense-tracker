@@ -16,7 +16,7 @@ function ExpenseList({ transaction }) {
           : "border-r-4 border-r-green-500"
       }`}
     > 
-      {transaction.name}
+      {transaction.cost}
       <div>
         <span>
           {sign} ${Math.abs(transaction.cost)}
