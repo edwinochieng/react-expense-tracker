@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/Globalcontext";
 
 function Remaining() {
-  return (
-    <div className='font-quicksand text-2xl'>Balance : $2000</div>
-  )
+  const { transactions } = useContext(GlobalContext);
+  const amounts = transactions.map((transaction) => transaction.cost);
+  const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
+
+  return <div className="font-quicksand text-2xl">Balance : ${total}</div>;
 }
 
-export default Remaining
+export default Remaining;
