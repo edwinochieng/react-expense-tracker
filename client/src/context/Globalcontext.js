@@ -6,9 +6,9 @@ import AppReducer from "./AppReducer";
 const initialState = {
   transactions: [],
 };
-
+ //create context
 export const GlobalContext = createContext(initialState);
-
+// global provider
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
