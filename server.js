@@ -1,8 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const connetDB = require('./config/db');
 
 
 dotenv.config({ path : './config/config.env'});
+
+connetDB();
 
 const transactions = require('./routes/transactions');
 
