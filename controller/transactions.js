@@ -67,6 +67,11 @@ exports.deleteTransaction = async (req,res,next) => {
         }
 
         await transaction.remove();
+
+        return res.status(200).json({
+            success : true,
+            data : {}
+        });
         
     } catch (err) {
         return res.status(500).json({
