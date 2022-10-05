@@ -22,7 +22,7 @@ function ExpenseList({ transaction }) {
           {sign} ${Math.abs(transaction.cost)}
         </span>
       </div>
-      <button onClick ={() =>deleteTransaction(transaction.id)} className="absolute left-0 h-6 "><DeleteForeverIcon sx = {{fontSize :16}}/></button>
+      <button onClick ={() =>deleteTransaction(transaction._id)} className="absolute left-0 h-6 "><DeleteForeverIcon sx = {{fontSize :16}}/></button>
     </li>
     </div>
     

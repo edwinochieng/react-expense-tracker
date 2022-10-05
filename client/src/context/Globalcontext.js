@@ -31,15 +31,22 @@ export const GlobalProvider = ({ children }) => {
       payload: err.response.data.error
     })
   }
-
  }
 
-
-  function deleteTransaction(id) {
-    dispatch({
-      type: "DELETE_TRANSACTION",
-      payload: id,
-    });
+  async function deleteTransaction(id) {
+    try {
+      await Axios.delete(`/api/v1/transactions/${id}`)
+      dispatch({
+        type: "DELETE_TRANSACTION",
+        payload: id,
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.response.data.error
+      })
+    }
+    
   }
   function addTransaction(transaction) {
     dispatch({
