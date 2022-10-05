@@ -1,11 +1,16 @@
-import React from "react";
+import React,{useEffect} from "react";
 import ExpenseList from "./ExpenseList";
 import { useContext } from "react";
 
 import { GlobalContext } from "../context/Globalcontext";
 
 function History() {
-  const { transactions } = useContext(GlobalContext);
+  const { transactions,getTransactions } = useContext(GlobalContext);
+
+  useEffect(()=>{
+    getTransactions();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <div className="font-quicksand mt-6">
